@@ -7,6 +7,8 @@ var myapp = angular.module('myApp', ['ngMaterial']);
 function MainCtrl($scope, $mdDialog) {
     $scope.title = "Stage One";
 
+    $scope.selectedTab = 1;
+
     var elem = angular.element(document.getElementsByTagName("md-card"));
 
     $scope.address = [
@@ -30,8 +32,8 @@ function MainCtrl($scope, $mdDialog) {
         }
     ];
     $scope.quals = ["GRADUATATION", "INTERMEDIATE", "SCHOOL"];
-    $scope.languages = ["JAVA", "C", "C#", "CUDA", "PYTHON", "PHP"];
-    $scope.oss = ["Windows", "Linux", "UNIX", "SUN"];
+    $scope.languages = ["JAVA", "C", "C#", "CUDA", "PYTHON", "PHP","AngularJs","ExpressJs","MongoDB","MySQL","GIT"];
+    $scope.oss = ["Windows", "Linux"];
     $scope.skills = ["ANDROID", "WEB DESIGNING", "DESKTOP APPLICATION"];
 
     $scope.project_details = [
@@ -73,8 +75,36 @@ function MainCtrl($scope, $mdDialog) {
             "RolesPlayed":["Developer","Tester"],
             "Skills":["HTML", "CSS", "Bootstrap", "Angularjs", "PHP", "MySQL", "Phpstrorm"],
             "TeamSize":2
+        },
+        {
+            "title": "Project",
+            "Description": "Developed website for an e-Commerce company.",
+            "Duration":new Date("July 1,15"),
+            "RolesPlayed":["Developer","Tester"],
+            "Skills":["HTML", "CSS", "Bootstrap", "Angularjs", "PHP", "MySQL", "Phpstrorm"],
+            "TeamSize":2
+        },
+        {
+            "title": "Project",
+            "Description": "Developed website for an e-Commerce company.",
+            "Duration":new Date("July 1,15"),
+            "RolesPlayed":["Developer","Tester"],
+            "Skills":["HTML", "CSS", "Bootstrap", "Angularjs", "PHP", "MySQL", "Phpstrorm"],
+            "TeamSize":2
         }
     ];
+
+    $scope.tools = ["Visual Studio",
+                    "Eclipse",
+                    "Android Studio",
+                    "PHPStorm",
+                    "WebStorm",
+                    "PyCharm",
+                    "Octave",
+                    "Matlab",
+                    "ADOBE Photoshop CS6",
+                    "ADOBE Illustrator"
+                    ];
 
     showAlert = function (src) {
         alert = $mdDialog.alert({
