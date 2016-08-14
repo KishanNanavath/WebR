@@ -19,7 +19,7 @@
             }
             #innerBody{
                 background-color: #080808;
-                background-image: linear-gradient(135deg,rgba(255, 24, 57, 0.25), rgba(171, 136, 200, 0.25));
+                background-image: linear-gradient(135deg, rgba(11, 7, 163, 0.25), rgba(200, 0, 45, 0.25));
             }
             md-card{
                 color: #ffffff;
@@ -97,71 +97,88 @@
                     </md-card-title>
                     <md-card-content layout-padding>
                         <md-list>
-                            <md-list-item ng-repeat="qual in quals" ng-click="null">
+                            <md-list-item ng-repeat="qual in quals" ng-click="null" layout="column" layout-align="center stretch">
                                 <md-icon>school</md-icon>
                                 <p>{{qual}}</p>
                             </md-list-item>
                         </md-list>
                     </md-card-content>
                 </md-card>
-                <div layout="row" layout-xs="column" layout-sm="column" layout-align="center stretch">
-                    <md-card flex-lg layout="column">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">Programming Languages</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content layout-padding>
-                            <md-list>
-                                <md-list-item ng-repeat="lang in languages | orderBy" ng-click="null">
-                                    <md-icon>done</md-icon>
-                                    <p>{{lang}}</p>
-                                </md-list-item>
-                            </md-list>
-                        </md-card-content>
-                    </md-card>
-                    <md-card flex-lg layout="column">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">Operating Systems</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content layout-padding>
-                            <md-list>
-                                <md-list-item ng-repeat="os in oss | orderBy" ng-click="null">
-                                    <md-icon>done</md-icon>
-                                    <p>{{os}}</p>
-                                </md-list-item>
-                            </md-list>
-                        </md-card-content>
-                    </md-card>
-                    <md-card flex-lg layout="column">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">Skills</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content layout-padding>
-                            <md-list>
-                                <md-list-item ng-repeat="skill in skills | orderBy" ng-click="null">
-                                    <md-icon>done</md-icon>
-                                    <p>{{skill}}</p>
-                                </md-list-item>
-                            </md-list>
-                        </md-card-content>
-                    </md-card>
-                </div>
+
+                <md-card layout="column">
+                    <md-card-content layout-padding>
+                        <md-list>
+                            <md-list-item layout="row" layout-align="space-around stretch">
+                                    <md-card flex-lg layout="column" flex>
+                                        <md-card-title>
+                                            <md-card-title-text>
+                                                <span class="md-headline">Programming Languages</span>
+                                            </md-card-title-text>
+                                        </md-card-title>
+                                        <md-card-content layout-padding>
+                                            <md-list>
+                                                <md-list-item ng-repeat="lang in languages | orderBy" ng-click="null">
+                                                    <md-icon>done</md-icon>
+                                                    <p>{{lang}}</p>
+                                                </md-list-item>
+                                            </md-list>
+                                        </md-card-content>
+                                    </md-card>
+                                    <md-card flex-lg layout="column">
+                                        <md-card-title>
+                                            <md-card-title-text>
+                                                <span class="md-headline">Operating Systems</span>
+                                            </md-card-title-text>
+                                        </md-card-title>
+                                        <md-card-content layout-padding>
+                                            <md-list>
+                                                <md-list-item ng-repeat="os in oss | orderBy" ng-click="null">
+                                                    <md-icon>done</md-icon>
+                                                    <p>{{os}}</p>
+                                                </md-list-item>
+                                            </md-list>
+                                        </md-card-content>
+                                    </md-card>
+                                    <md-card flex-lg layout="column">
+                                        <md-card-title>
+                                            <md-card-title-text>
+                                                <span class="md-headline">Skills</span>
+                                            </md-card-title-text>
+                                        </md-card-title>
+                                        <md-card-content layout-padding>
+                                            <md-list>
+                                                <md-list-item ng-repeat="skill in skills | orderBy" ng-click="null">
+                                                    <md-icon>done</md-icon>
+                                                    <p>{{skill}}</p>
+                                                </md-list-item>
+                                            </md-list>
+                                        </md-card-content>
+                                    </md-card>
+                            </md-list-item>
+                        </md-list>
+                    </md-card-content>
+                </md-card>
 
                 <md-card layout="column">
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline">Projects</span>
+                            <span class="md-headline"><md-icon>assignment_turned_in</md-icon> Projects</span>
                         </md-card-title-text>
                     </md-card-title>
-                    <md-card-content layout-padding>
-                        <md-list>
-                            <md-list-item>
-                                jnkjkj
+                    <md-card-content>
+                        <md-list layout="row">
+                            <md-list-item ng-repeat="project in projects" layout="column" flex="50">
+                                <md-list>
+                                    <md-card layout="column" layout-align="start start" layout-padding>
+                                        <md-list-item ><md-icon>title</md-icon>{{project.title}}</md-list-item>
+                                        <!--<md-list-item><p>{{project.title}}</p></md-list-item>-->
+                                        <md-list-item layout="row" layout-align="start start"><md-icon>description</md-icon>{{project.Description}}</md-list-item>
+                                        <md-list-item><md-icon>work</md-icon>{{project.RolesPlayed.join(', ')}}</md-list-item>
+                                        <md-list-item><md-icon>date_range</md-icon>{{project.Duration.toDateString()}}</md-list-item>
+                                        <md-list-item><md-icon>people</md-icon>{{project.TeamSize}}</md-list-item>
+                                        <md-list-item><md-icon>build</md-icon>{{project.Skills.join(', ')}}</md-list-item>
+                                    </md-card>
+                                </md-list>
                             </md-list-item>
                         </md-list>
                     </md-card-content>
