@@ -270,10 +270,55 @@
                     <md-list-item ng-repeat="tool in tools" ng-click="null" flex-lg="25" flex>
                         <md-icon>done</md-icon>
                         <p>{{tool}}</p>
+                        <md-tooltip md-direction="top">
+                            {{tool}}
+                        </md-tooltip>
                     </md-list-item>
                 </md-list>
             </md-card-content>
         </md-card>
+
+        <md-card layout="column">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Residentional Address</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout-padding>
+                <md-list layout="row" layout-xs="column" layout-sm="column">
+                    <md-list-item ng-repeat="add in address" flex-lg="50" flex-md="50">
+                        <md-list flex>
+                            <p>{{add.type}}</p>
+                            <md-list-item ng-click="null">
+                                <md-icon>navigate_next</md-icon>
+                                <p>{{add.H_no}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null">
+                                <md-icon>navigate_next</md-icon>
+                                <p>{{add.local}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null">
+                                <md-icon>navigate_next</md-icon>
+                                <p>{{add.mandal}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null">
+                                <md-icon>navigate_next</md-icon>
+                                <p>{{add.city}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null">
+                                <md-icon>navigate_next</md-icon>
+                                <p>{{add.state}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null">
+                                <md-icon>navigate_next</md-icon>
+                                <p>{{add.pin_code}}</p>
+                            </md-list-item>
+                        </md-list>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
+
     </div>
 </div>
 </body>

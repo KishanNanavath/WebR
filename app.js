@@ -103,7 +103,7 @@ function MainCtrl($scope, $mdDialog) {
                     "Octave",
                     "Matlab",
                     "ADOBE Photoshop CS6",
-                    "ADOBE Illustrator"
+                    "ADOBE Illustrator CS6"
                     ];
 
     showAlert = function (src) {
