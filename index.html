@@ -22,7 +22,7 @@
 
         #innerBody {
             background-color: #080808;
-            background-image: linear-gradient(135deg, rgba(11, 7, 163, 0.25), rgba(200, 0, 45, 0.25));
+            background-image: linear-gradient(-90deg, #AA076B, #61045F);
         }
 
         md-card {
@@ -61,7 +61,6 @@
 <body ng-app="myApp" ng-cloak>
 
 <div id="innerBody" ng-controller="MainCtrl">
-
     <div ng-cloak layout="column" flex layout-padding>
 
         <div ng-include="'./SRC/HTML/profilePage.html'"></div>
@@ -84,38 +83,6 @@
             <!--</md-card-content>-->
         <!--</md-card>-->
 
-        <md-card layout="column">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Residentional Address</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout-padding>
-                <md-list layout="row" layout-xs="column" layout-sm="column">
-                    <md-list-item ng-repeat="add in address" flex-lg="50" flex-md="50">
-                        <md-list flex>
-                            <p>{{add.type}}</p>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.H_no}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.city}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.state}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.pin_code}}</p>
-                            </md-list-item>
-                        </md-list>
-                    </md-list-item>
-                </md-list>
-            </md-card-content>
-        </md-card>
 
         <md-card layout="column">
             <md-card-title>
