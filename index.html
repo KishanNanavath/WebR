@@ -55,29 +55,34 @@
             color: #ffffff;
             background-color: #4c7480;
         }
+
     </style>
 </head>
 <body ng-app="myApp" ng-cloak>
+
 <div id="innerBody" ng-controller="MainCtrl">
+
     <div ng-cloak layout="column" flex layout-padding>
-        <md-card layout="column">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">PROFILE</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout="row" layout-xs="column" layout-padding>
-                <md-card layout="column" flex-lg="30" flex-md="30" flex-sm="30">
-                    <img onclick="showAlert(this.src)"
-                         src="./assets/dotsgif.gif"/>
-                </md-card>
-                <div layout="column" flex>
-                    <span ng-hide="true" class="md-headline">Bal Kishan Nanavath</span>
-                    <span ng-hide="true">Software Developer</span>
-                    <span>XXXXXXXXXXXXXXXXXXXX</span>
-                </div>
-            </md-card-content>
-        </md-card>
+
+        <div ng-include="'./SRC/HTML/profilePage.html'"></div>
+
+        <!--<md-card layout="column">-->
+            <!--<md-card-title>-->
+                <!--<md-card-title-text>-->
+                    <!--<span class="md-headline">PROFILE</span>-->
+                <!--</md-card-title-text>-->
+            <!--</md-card-title>-->
+            <!--<md-card-content layout="row" layout-xs="column" layout-padding>-->
+                <!--<md-card layout="column">-->
+                    <!--<img onclick="showAlert(this.src)"-->
+                         <!--src="./assets/dotsgif.gif"/>-->
+                <!--</md-card>-->
+                <!--<div layout="column" flex>-->
+                    <!--<span class="md-headline">Bal Kishan Nanavath</span>-->
+                    <!--<span>Software Developer</span>-->
+                <!--</div>-->
+            <!--</md-card-content>-->
+        <!--</md-card>-->
 
         <md-card layout="column">
             <md-card-title>
@@ -87,22 +92,22 @@
             </md-card-title>
             <md-card-content layout-padding>
                 <md-list layout="row" layout-xs="column" layout-sm="column">
-                    <md-list-item ng-repeat="add in address" ng-click="null" flex-lg="50" flex-md="50">
-                        <md-list>
+                    <md-list-item ng-repeat="add in address" flex-lg="50" flex-md="50">
+                        <md-list flex>
                             <p>{{add.type}}</p>
-                            <md-list-item>
+                            <md-list-item ng-click="null">
                                 <md-icon>navigate_next</md-icon>
                                 <p>{{add.H_no}}</p>
                             </md-list-item>
-                            <md-list-item>
+                            <md-list-item ng-click="null">
                                 <md-icon>navigate_next</md-icon>
                                 <p>{{add.city}}</p>
                             </md-list-item>
-                            <md-list-item>
+                            <md-list-item ng-click="null">
                                 <md-icon>navigate_next</md-icon>
                                 <p>{{add.state}}</p>
                             </md-list-item>
-                            <md-list-item>
+                            <md-list-item ng-click="null">
                                 <md-icon>navigate_next</md-icon>
                                 <p>{{add.pin_code}}</p>
                             </md-list-item>
