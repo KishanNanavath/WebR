@@ -4,7 +4,62 @@
 var myapp = angular.module('myApp', ['ngMaterial']);
 
 //************Controller Functions*************************
-function MainCtrl($scope, $mdDialog) {
+function MainCtrl($scope, $mdDialog, $interval) {
+    $scope.author = "kishan";
+
+    $scope.bg1 = {
+        "background-image" : "linear-gradient(-90deg, #AA076B, #61045F)",
+        "transition":"background-image 1s ease"
+    };
+
+    $scope.bg2 = {
+        "background-image" : "linear-gradient(-90deg, #24C6DC, #514A9D)",
+        "transition":"background-image 1s"
+    };
+
+    $scope.bg = $scope.bg1;
+
+    $scope.changeBg = function (v) {
+        if(v === "bg1"){
+            $scope.bg = $scope.bg1;
+        }else{
+            $scope.bg = $scope.bg2;
+        }
+    };
+
+    //$interval(function () {
+    //    if($scope.bg === $scope.bg2){
+    //        $scope.changeBg("bg1");
+    //        console.log("bg1");
+    //    }
+    //    else{
+    //        $scope.changeBg("bg2");
+    //        console.log("bg2");
+    //    }
+    //},5000);
+
+    $scope.showAlert = function(ev,lang) {
+        $mdDialog.show({
+            targetEvent: ev,
+            template:
+            '<md-dialog layout-padding>' +
+            '  <md-dialog-content>Hello '+lang+'!</md-dialog-content>' +
+            '  <md-dialog-actions>' +
+            '    <md-button ng-click="closeDialog()" class="md-primary">' +
+            '      Close Greeting' +
+            '    </md-button>' +
+            '  </md-dialog-actions>' +
+            '</md-dialog>',
+            clickOutsideToClose:true,
+            onComplete: afterShowAnimation,
+            locals: { employee:lang }
+        });
+        // When the 'enter' animation finishes...
+        function afterShowAnimation(scope, element, options) {
+            // post-show code here: DOM element focus, etc.
+        }
+    };
+
     $scope.title = "Stage One";
 
     $scope.selectedTab = 1;
@@ -32,7 +87,7 @@ function MainCtrl($scope, $mdDialog) {
         }
     ];
     $scope.quals = ["GRADUATATION", "INTERMEDIATE", "SCHOOL"];
-    $scope.languages = ["JAVA", "C", "C#", "CUDA", "PYTHON", "PHP","AngularJs","ExpressJs","MongoDB","MySQL","GIT"];
+    $scope.languages = ["JAVA", "C", "PYTHON", "C#", "CUDA", "PHP","AngularJs","ExpressJs","MongoDB","NodeJs","MySQL","GIT"];
     $scope.oss = ["Windows", "Linux"];
     $scope.skills = ["ANDROID", "WEB DESIGNING", "DESKTOP APPLICATION"];
 

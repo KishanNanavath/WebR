@@ -1,7 +1,10 @@
 <html lang="en">
 <head>
     <title>Kishan Nanavath Resume</title>
+    <!--<link rel="icon" href="" type="image/x-icon">-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
@@ -56,11 +59,20 @@
             background-color: #4c7480;
         }
 
+        md-dialog.md-default-theme, md-dialog {
+            background-color:#165367 !important;
+            color: #ffffff;
+        }
+
+        a.md-button.md-default-theme.md-primary, a.md-button.md-primary, .md-button.md-default-theme.md-primary, .md-button.md-primary {
+            color: #ffffff;
+        }
+
     </style>
 </head>
 <body ng-app="myApp" ng-cloak>
 
-<div id="innerBody" ng-controller="MainCtrl">
+<div id="innerBody" ng-controller="MainCtrl" ng-style="bg" style="transition: ">
     <div ng-cloak layout="column" flex layout-padding>
 
         <div ng-include="'./SRC/HTML/profilePage.html'"></div>
@@ -120,7 +132,7 @@
                         </md-tab-label>
                         <md-tab-body>
                             <md-list layout="row" layout-wrap layout-padding>
-                                <md-list-item ng-repeat="lang in languages" ng-click="null" flex-lg="25" flex>
+                                <md-list-item ng-repeat="lang in languages" flex-lg="25" flex  ng-click="showAlert($event,lang)">
                                     <md-icon>done</md-icon>
                                     <p>{{lang}}</p>
                                     <md-tooltip md-direction="top">
@@ -281,7 +293,7 @@
         <md-card layout="column">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Residentional Address</span>
+                    <span class="md-headline"><md-icon>home</md-icon> Residentional Address</span>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content layout-padding>
