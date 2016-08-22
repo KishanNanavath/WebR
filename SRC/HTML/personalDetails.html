@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<md-card layout="column">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline"><md-icon>person</md-icon> Personal Details</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout-padding>
+        <md-list>
+            <md-list-item ng-click="null">
+                <md-icon>navigate_next</md-icon>
+                <p>Date of Birth : {{per_details.dob}}</p>
+            </md-list-item>
+            <md-list-item ng-click="null">
+                <md-icon>navigate_next</md-icon>
+                <p>Gender : {{per_details.Gender}}</p>
+            </md-list-item>
+            <md-list-item ng-click="null">
+                <md-icon>navigate_next</md-icon>
+                <p>Status : {{per_details.Status}}</p>
+            </md-list-item>
+            <md-list-item ng-click="null">
+                <md-icon>navigate_next</md-icon>
+                <p>Nationality : {{per_details.Nationality}}</p>
+            </md-list-item>
+            <md-list-item ng-click="null">
+                <md-icon>navigate_next</md-icon>
+                <p>Languages Known : {{per_details.languages.join(", ")}}</p>
+            </md-list-item>
+        </md-list>
+    </md-card-content>
+</md-card>
+
+</body>
+</html>

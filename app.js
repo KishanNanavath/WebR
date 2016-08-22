@@ -1,62 +1,27 @@
 /**
  * Created by Balkishan on 18-07-2016.
  */
+
 var myapp = angular.module('myApp', ['ngMaterial']);
 
 //************Controller Functions*************************
 function MainCtrl($scope, $mdDialog, $interval) {
+    console.log("sta");
+
     $scope.author = "kishan";
-
-    $scope.bg1 = {
-        "background-image" : "linear-gradient(-90deg, #AA076B, #61045F)",
-        "transition":"background-image 1s ease"
-    };
-
-    $scope.bg2 = {
-        "background-image" : "linear-gradient(-90deg, #24C6DC, #514A9D)",
-        "transition":"background-image 1s"
-    };
-
-    $scope.bg = $scope.bg1;
-
-    $scope.changeBg = function (v) {
-        if(v === "bg1"){
-            $scope.bg = $scope.bg1;
-        }else{
-            $scope.bg = $scope.bg2;
-        }
-    };
-
-    //$interval(function () {
-    //    if($scope.bg === $scope.bg2){
-    //        $scope.changeBg("bg1");
-    //        console.log("bg1");
-    //    }
-    //    else{
-    //        $scope.changeBg("bg2");
-    //        console.log("bg2");
-    //    }
-    //},5000);
 
     $scope.showAlert = function(ev,lang) {
         $mdDialog.show({
-            targetEvent: ev,
-            template:
-            '<md-dialog layout-padding>' +
-            '  <md-dialog-content>Hello '+lang+'!</md-dialog-content>' +
-            '  <md-dialog-actions>' +
-            '    <md-button ng-click="closeDialog()" class="md-primary">' +
-            '      Close Greeting' +
-            '    </md-button>' +
-            '  </md-dialog-actions>' +
-            '</md-dialog>',
+            targetEvent:ev,
             clickOutsideToClose:true,
-            onComplete: afterShowAnimation,
-            locals: { employee:lang }
+            autoWrap:true,
+            templateUrl:'./SRC/HTML/profilePage.html',
+            locals:{lang:lang},
+            controller:dialogCtrl
         });
-        // When the 'enter' animation finishes...
-        function afterShowAnimation(scope, element, options) {
-            // post-show code here: DOM element focus, etc.
+
+        function dialogCtrl($scope,$mdDialog,lang){
+            $scope.lang = lang;
         }
     };
 
@@ -86,10 +51,46 @@ function MainCtrl($scope, $mdDialog, $interval) {
             "pin_code": "510006"
         }
     ];
-    $scope.quals = ["GRADUATATION", "INTERMEDIATE", "SCHOOL"];
+
+    $scope.quals = [
+        {
+            "title":"GRADUATATION",
+            "branch":"Electronics and Communication Engineering",
+            "joiningYear":2012,
+            "passingYear":2016,
+            "institute":"National Institute Of Technology, Karnataka(NITK)",
+            "board":"Autonomous",
+            "grading":"CGPA",
+            "maxScore":10,
+            "score":6.85
+        },
+        {
+            "title":"INTERMEDIATE",
+            "branch":"Maths, Physics and Chemistry",
+            "joiningYear":2010,
+            "passingYear":2012,
+            "institute":"New Era Jr College",
+            "board":"Board of Intermediate Education, Andhra Pradesh",
+            "grading":"percentage",
+            "maxScore":100,
+            "score":92.7
+        },
+        {
+            "title":"SCHOOL",
+            "branch":"",
+            "joiningYear":"",
+            "passingYear":2010,
+            "institute":"Nalanda High School",
+            "board":"Board of Secondary Education, Andhra Pradesh",
+            "grading":"percentage",
+            "maxScore":100,
+            "score":86.44
+        }
+    ];
+
     $scope.languages = ["JAVA", "C", "PYTHON", "C#", "CUDA", "PHP","AngularJs","ExpressJs","MongoDB","NodeJs","MySQL","GIT"];
     $scope.oss = ["Windows", "Linux"];
-    $scope.skills = ["ANDROID", "WEB DESIGNING", "DESKTOP APPLICATION"];
+    $scope.skills = ["Networking","Algorithms","ANDROID", "WEB DESIGNING", "DESKTOP APPLICATION"];
 
     $scope.project_details = [
         {
@@ -173,6 +174,8 @@ function MainCtrl($scope, $mdDialog, $interval) {
                 alert = undefined;
             });
     }
+
+
 }
 //-------------controller definations----------------------
 myapp.controller("MainCtrl", MainCtrl);
