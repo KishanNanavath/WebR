@@ -88,7 +88,62 @@ function MainCtrl($scope, $mdDialog, $interval) {
         }
     ];
 
-    $scope.languages = ["JAVA", "C", "PYTHON", "C#", "CUDA", "PHP","AngularJs","ExpressJs","MongoDB","NodeJs","MySQL","GIT"];
+    //$scope.languages = ["JAVA", "C", "PYTHON", "C#", "CUDA", "PHP","AngularJs","ExpressJs","MongoDB","NodeJs","MySQL","GIT"];
+    $scope.languages = [
+        {
+            name:"JAVA",
+            icon:"devicon-java-plain"
+        },{
+            name:"PYTHON",
+            icon:"devicon-python-plain"
+        },{
+            name:"C",
+            icon:"devicon-c-plain"
+        },{
+            name:"C#",
+            icon:"devicon-csharp-plain"
+        },{
+            name:"PHP",
+            icon:"devicon-php-plain"
+        },{
+            name:"AngularJs",
+            icon:"devicon-angularjs-plain"
+        },{
+            name:"ExpressJs",
+            icon:"devicon-javascript-plain"
+        },{
+            name:"MongoDB",
+            icon:"devicon-mongodb-plain"
+        },{
+            name:"NodeJs",
+            icon:"devicon-nodejs-plain"
+        },{
+            name:"MySQL",
+            icon:"devicon-mysql-plain"
+        },{
+            name:"GIT",
+            icon:"devicon-git-plain"
+        },{
+            name:"ANDROID",
+            icon:"devicon-android-plain"
+        },{
+            name:"BOOTSTRAP",
+            icon:"devicon-bootstrap-plain"
+        },{
+            name:"CSS3",
+            icon:"devicon-css3-plain"
+        },{
+            name:"GITHUB",
+            icon:"devicon-github-plain"
+        },{
+            name:"JavaScript",
+            icon:"devicon-javascript-plain"
+        },{
+            name:"jQuery",
+            icon:"devicon-jquery-plain"
+        }
+    ];
+
     $scope.oss = ["Windows", "Linux"];
     $scope.skills = ["Networking","Algorithms","ANDROID", "WEB DESIGNING", "DESKTOP APPLICATION"];
 
