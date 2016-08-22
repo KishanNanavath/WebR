@@ -6,11 +6,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
     <script type="text/javascript" src="./app.js"></script>
     <style>
         *::selection {
@@ -72,264 +78,18 @@
 </head>
 <body ng-app="myApp" ng-cloak>
 
+<p id="status"></p>
+
 <div id="innerBody" ng-controller="MainCtrl" ng-style="bg" style="transition: ">
     <div ng-cloak layout="column" flex layout-padding>
 
-        <div ng-include="'./SRC/HTML/profilePage.html'"></div>
-
-        <!--<md-card layout="column">-->
-            <!--<md-card-title>-->
-                <!--<md-card-title-text>-->
-                    <!--<span class="md-headline">PROFILE</span>-->
-                <!--</md-card-title-text>-->
-            <!--</md-card-title>-->
-            <!--<md-card-content layout="row" layout-xs="column" layout-padding>-->
-                <!--<md-card layout="column">-->
-                    <!--<img onclick="showAlert(this.src)"-->
-                         <!--src="./assets/dotsgif.gif"/>-->
-                <!--</md-card>-->
-                <!--<div layout="column" flex>-->
-                    <!--<span class="md-headline">Bal Kishan Nanavath</span>-->
-                    <!--<span>Software Developer</span>-->
-                <!--</div>-->
-            <!--</md-card-content>-->
-        <!--</md-card>-->
-
-
-        <md-card layout="column">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Qualifications</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout-padding>
-                <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always" md-swipe-content="true">
-                    <div ng-repeat="qual in quals" layout="column" layout-align="center stretch">
-                        <md-tab>
-                            <md-tab-label><span><md-icon>school</md-icon>{{qual}}</span></md-tab-label>
-                            <md-tab-body>
-                                <md-list>
-                                    <md-list-item ng-click="null">
-                                        <md-icon>school</md-icon>
-                                        <p>{{qual}}</p>
-                                    </md-list-item>
-                                </md-list>
-                            </md-tab-body>
-
-                        </md-tab>
-                    </div>
-                </md-tabs>
-            </md-card-content>
-        </md-card>
-
-        <md-card>
-            <md-card-content>
-                <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always" md-swipe-content="true">
-                    <md-tab>
-                        <md-tab-label>
-                            <md-icon>code</md-icon>
-                            Programming languages
-                        </md-tab-label>
-                        <md-tab-body>
-                            <md-list layout="row" layout-wrap layout-padding>
-                                <md-list-item ng-repeat="lang in languages" flex-lg="25" flex  ng-click="showAlert($event,lang)">
-                                    <md-icon>done</md-icon>
-                                    <p>{{lang}}</p>
-                                    <md-tooltip md-direction="top">
-                                        {{lang}}
-                                    </md-tooltip>
-                                </md-list-item>
-                            </md-list>
-                        </md-tab-body>
-                    </md-tab>
-                    <md-tab label="INTERESTS">
-                        <md-list layout="row" layout-wrap layout-padding>
-                            <md-list-item ng-repeat="skill in skills | orderBy" ng-click="null" flex-lg="50" flex>
-                                <md-icon>done</md-icon>
-                                <p>{{skill}}</p>
-                            </md-list-item>
-                        </md-list>
-                    </md-tab>
-                    <md-tab>
-                        <md-tab-label><span><md-icon>computer</md-icon>Operating Systems</span></md-tab-label>
-                        <md-tab-body>
-                            <md-list layout="row" layout-wrap layout-padding>
-                                <md-list-item ng-repeat="os in oss | orderBy" ng-click="null" flex-lg="50" flex>
-                                    <md-icon>done</md-icon>
-                                    <p>{{os}}</p>
-                                </md-list-item>
-                            </md-list>
-                        </md-tab-body>
-                    </md-tab>
-                </md-tabs>
-            </md-card-content>
-        </md-card>
-
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline"><md-icon>assignment_turned_in</md-icon> Projects</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout-padding>
-                <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always" md-swipe-content="true">
-                    <div ng-repeat="project in projects">
-                        <md-tab label="{{project.title}}">
-                            <md-card layout="column" layout-align="start start" layout-padding>
-                                <md-list-item>
-                                    <md-icon>
-                                        <md-tooltip md-direction="top">
-                                            Project Title
-                                        </md-tooltip>
-                                        title
-                                    </md-icon>
-                                    {{project.title}}
-                                </md-list-item>
-                                <md-list-item>
-                                    <md-icon>
-
-                                        <md-tooltip md-direction="top">
-                                            Description
-                                        </md-tooltip>
-                                        description
-                                    </md-icon>
-                                    {{project.Description}}
-                                </md-list-item>
-                                <md-list-item>
-                                    <md-icon>
-
-                                        <md-tooltip md-direction="top">
-                                            Roles Played
-                                        </md-tooltip>
-                                        work
-                                    </md-icon>
-                                    {{project.RolesPlayed.join(', ')}}
-                                </md-list-item>
-                                <md-list-item>
-                                    <md-icon>
-                                        <md-tooltip md-direction="top">
-                                            Duration
-                                        </md-tooltip>
-                                        date_range
-                                    </md-icon>
-                                    {{project.Duration.toDateString()}}
-                                </md-list-item>
-                                <md-list-item>
-                                    <md-icon>
-                                        <md-tooltip md-direction="top">
-                                            Team Members
-                                        </md-tooltip>
-                                        people
-                                    </md-icon>
-                                    {{project.TeamSize}}
-                                </md-list-item>
-                                <md-list-item>
-                                    <md-icon>
-                                        <md-tooltip md-direction="top">
-                                            Skills
-                                        </md-tooltip>
-                                        build
-                                    </md-icon>
-                                    {{project.Skills.join(', ')}}
-                                </md-list-item>
-                            </md-card>
-                        </md-tab>
-                    </div>
-                </md-tabs>
-            </md-card-content>
-        </md-card>
-
-        <md-card layout="column">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline"><md-icon>person</md-icon> Personal Details</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout-padding>
-                <md-list>
-                    <md-list-item ng-click="null">
-                        <md-icon>navigate_next</md-icon>
-                        <p>Date of Birth : {{per_details.dob}}</p>
-                    </md-list-item>
-                    <md-list-item ng-click="null">
-                        <md-icon>navigate_next</md-icon>
-                        <p>Gender : {{per_details.Gender}}</p>
-                    </md-list-item>
-                    <md-list-item ng-click="null">
-                        <md-icon>navigate_next</md-icon>
-                        <p>Status : {{per_details.Status}}</p>
-                    </md-list-item>
-                    <md-list-item ng-click="null">
-                        <md-icon>navigate_next</md-icon>
-                        <p>Nationality : {{per_details.Nationality}}</p>
-                    </md-list-item>
-                    <md-list-item ng-click="null">
-                        <md-icon>navigate_next</md-icon>
-                        <p>Languages Known : {{per_details.languages.join(", ")}}</p>
-                    </md-list-item>
-                </md-list>
-            </md-card-content>
-        </md-card>
-
-        <md-card>
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline"><md-icon>build</md-icon> Tools</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout-padding>
-                <md-list layout-lg="row" layout="column" layout-wrap layout-padding>
-                    <md-list-item ng-repeat="tool in tools" ng-click="null" flex-lg="25" flex>
-                        <md-icon>done</md-icon>
-                        <p>{{tool}}</p>
-                        <md-tooltip md-direction="top">
-                            {{tool}}
-                        </md-tooltip>
-                    </md-list-item>
-                </md-list>
-            </md-card-content>
-        </md-card>
-
-        <md-card layout="column">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline"><md-icon>home</md-icon> Residentional Address</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout-padding>
-                <md-list layout="row" layout-xs="column" layout-sm="column">
-                    <md-list-item ng-repeat="add in address" flex-lg="50" flex-md="50">
-                        <md-list flex>
-                            <p>{{add.type}}</p>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.H_no}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.local}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.mandal}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.city}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.state}}</p>
-                            </md-list-item>
-                            <md-list-item ng-click="null">
-                                <md-icon>navigate_next</md-icon>
-                                <p>{{add.pin_code}}</p>
-                            </md-list-item>
-                        </md-list>
-                    </md-list-item>
-                </md-list>
-            </md-card-content>
-        </md-card>
+        <!--<div ng-include="'./SRC/HTML/profilePage.html'"></div>-->
+        <div ng-include="'./SRC/HTML/projects.html'"></div>
+        <div ng-include="'./SRC/HTML/programming.html'"></div>
+        <div ng-include="'./SRC/HTML/tools.html'"></div>
+        <div ng-include="'./SRC/HTML/personalDetails.html'"></div>
+        <div ng-include="'./SRC/HTML/qualifications.html'"></div>
+        <div ng-include="'./SRC/HTML/address.html'"></div>
 
     </div>
 </div>
