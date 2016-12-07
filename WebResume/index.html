@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <title>Kishan Nanavath Resume</title>
+    <!--<link rel="icon" href="" type="image/x-icon">-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.css">
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+    <script type="text/javascript" src="./app.js"></script>
+    <style>
+        *::selection {
+            background-color: #080808;
+            color: #f7f7f7;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #innerBody {
+            background-color: #080808;
+            background-image: linear-gradient(-90deg, #AA076B, #61045F);
+        }
+
+        md-card {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, .15);
+            border: rgba(72, 60, 128, .4) solid 2px;
+        }
+
+        md-card > img {
+            padding: 0px;
+            border: none;
+        }
+
+        md-icon {
+            color: #ffffff;
+        }
+
+        md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]) {
+            color: #aaaaaa !important;
+            opacity: 0.5 !important;
+        }
+
+        md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon, md-tabs.md-accent > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active md-icon, md-tabs.md-default-theme.md-accent > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused, md-tabs.md-default-theme.md-accent > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused md-icon {
+            color: #ffffff !important;
+            font-size: large;
+            opacity: 1 !important;
+        }
+
+        md-tabs md-ink-bar {
+            color: #ffffff;
+            background-color: #4c7480;
+        }
+
+        md-dialog.md-default-theme, md-dialog {
+            background-color:#165367 !important;
+            color: #ffffff;
+        }
+
+        a.md-button.md-default-theme.md-primary, a.md-button.md-primary, .md-button.md-default-theme.md-primary, .md-button.md-primary {
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+<body ng-app="myApp" ng-cloak>
+
+<div id="innerBody" ng-controller="MainCtrl" ng-style="bg">
+
+    <div ng-cloak layout="column" flex layout-padding>
+        <!--<div ng-include="'./SRC/HTML/profilePage.html'"></div>-->
+        <div ng-include="'./SRC/HTML/projects.html'"></div>
+        <div ng-include="'./SRC/HTML/programming.html'"></div>
+        <div ng-include="'./SRC/HTML/tools.html'"></div>
+        <div ng-include="'./SRC/HTML/personalDetails.html'"></div>
+        <div ng-include="'./SRC/HTML/qualifications.html'"></div>
+        <div ng-include="'./SRC/HTML/address.html'"></div>
+
+    </div>
+</div>
+</body>
+</html>

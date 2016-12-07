@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<md-card layout="column">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">Qualifications</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content layout-padding>
+        <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always" md-swipe-content="true">
+            <div ng-repeat="qual in quals" layout="column" layout-align="center stretch">
+                <md-tab>
+                    <md-tab-label><span><md-icon>school</md-icon>{{qual.title}}</span></md-tab-label>
+                    <md-tab-body>
+                        <md-list flex>
+                            <md-list-item ng-if="qual.branch != ''" ng-click="null" flex>
+                                <md-icon>keyboard_arrow_right</md-icon>
+                                <p>{{qual.branch}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null" flex>
+                                <md-icon>keyboard_arrow_right</md-icon>
+                                <p>{{qual.institute}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null" flex="50">
+                                <md-icon>keyboard_arrow_right</md-icon>
+                                <p>{{qual.joiningYear}} - {{qual.passingYear}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null" flex>
+                                <md-icon>keyboard_arrow_right</md-icon>
+                                <p>{{qual.board}}</p>
+                            </md-list-item>
+                            <md-list-item ng-click="null" flex>
+                                <md-icon>keyboard_arrow_right</md-icon>
+                                <p>{{qual.grading}}<span ng-if="qual.grading == 'CGPA'">({{qual.maxScore}})</span> : {{qual.score}} <span ng-if="qual.grading == 'percentage'">%</span> </p>
+                            </md-list-item>
+                        </md-list>
+                    </md-tab-body>
+
+                </md-tab>
+            </div>
+        </md-tabs>
+    </md-card-content>
+</md-card>
+</body>
+</html>
